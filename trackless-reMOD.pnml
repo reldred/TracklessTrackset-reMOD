@@ -5,12 +5,17 @@
 //Defines how the sprites are tracked, courtesy of the swedish rail set.
 #include "src/template.pnml"
 
-spriteset (SPRITESET_NO_fences, "grf/ISR1.png") {
-	tmpl_no_fences()
+spriteset (mod_fences, "grf/NewFences.png") {
+	tmpl_new_fences(0,0)
 }
-switch(FEAT_RAILTYPES, SELF, NO_fences, PARAM_FENCE) {
-	0: SPRITESET_NO_fences;
-	CB_FAILED;
+spriteset (reg_fences, "grf/NewFences.png") {
+	tmpl_new_fences(0,50)
+}
+spriteset (old_fences, "grf/NewFences.png") {
+	tmpl_new_fences(0,100)
+}
+spriteset (NO_fences, "grf/ISR1.png") {
+	tmpl_no_fences()
 }
 
 //Tracktypes

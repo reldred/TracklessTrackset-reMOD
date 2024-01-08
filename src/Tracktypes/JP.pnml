@@ -52,7 +52,7 @@ item(FEAT_RAILTYPES, JP_ID, 2) {
          bridge_surfaces:	JP_bridge_SNOW;				// defines the overlay drawn over bridges
 		 gui:				JP_gui;					// defines the gui sprites
 
-         fences:          NO_fences;         // Custom Fences since v2
+         fences:            sw_DPRK_fence;         // Custom Fences since v2
      }
  }
  }

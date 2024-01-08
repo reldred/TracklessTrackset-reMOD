@@ -33,6 +33,11 @@ spriteset (DPRK_gui, "grf/DPRK_GUI.png") {
 	tmpl_gui()
 }
 
+switch(FEAT_RAILTYPES, SELF, sw_DPRK_fence, PARAM_FENCE){
+	0: NO_fences;
+	1: reg_fences;
+}
+
 if (PARAM_DPRK == 1) {
 item(FEAT_RAILTYPES, DPRK_ID, 1) {
      property {
@@ -61,7 +66,7 @@ item(FEAT_RAILTYPES, DPRK_ID, 1) {
          bridge_surfaces:	DPRK_bridge_SNOW;				// defines the overlay drawn over bridges
 		 gui:				DPRK_gui;					// defines the gui sprites
 
-         fences:          NO_fences;         // Custom Fences since v2
+         fences:            sw_DPRK_fence;         // Custom Fences since v2
      }
  }
  }

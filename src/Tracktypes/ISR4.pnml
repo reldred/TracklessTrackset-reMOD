@@ -40,7 +40,7 @@ item(FEAT_RAILTYPES, ISR4_ID, 5) {
          bridge_surfaces:	ISR4_bridge;				// defines the overlay drawn over bridges
 		 gui:				ISR4_gui;					// defines the gui sprites
 
-         fences:          NO_fences;         // Custom Fences since v2
+         fences:            sw_ISR1_fence;         // Custom Fences since v2
      }
  }
  }

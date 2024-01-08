@@ -1,7 +1,7 @@
 //North Korean Track Set
 //Defines the GRF
 grf {
- grfid: "EN\37\01";
+ grfid: "RJE\1D";
  name: string(STR_GRF_NAME);
  desc: string(STR_GRF_DESC);
  version: 1;
@@ -231,6 +231,25 @@ template tmpl_fences(y) {
 //	[350,  y, 33,30,  -2, -14]
  [350, y, 33,30, 0, -15]
 }
+// Fence. Updated template from Korean Track set by SerpensNebula https://github.com/SerpensNebula using graphics supplied by EmperorJake of the JP+ goon squad.
+template tmpl_new_fences (x, y) {
+    [ x, y, 32, 25, -33, -11]
+    [ x+40, y, 32, 25, 3, -11]
+    [ x+80, y, 8, 39, -3, -24]
+    [ x+100, y, 64, 12, -31, -12]
+    [ x+170, y, 32, 17, -33, -10]
+    [ x+210, y, 32, 17, 3, -10]
+    [ x+250, y, 32, 35, -33, -20]
+    [ x+290, y, 32, 35, 3, -20]
+    [ x, y, 32, 25, -29, -9]
+    [ x+40, y, 32, 25, -1, -9]
+    [ x+330, y, 8, 39, -3, -24]
+    [ x+100, y, 64, 12, -31, -12]
+    [ x+170, y, 32, 17, -29, -8]
+    [ x+210, y, 32, 17, -1, -8]
+    [ x+250, y, 32, 35, -29, -18]
+    [ x+290, y, 32, 35, -1, -18]
+}
 // gui
 template tmpl_gui() {
  [ 0, 0, 20, 20, 0, 0]
@@ -383,12 +402,17 @@ template template_metroroof() {
  [1, 1, 1, 1, 1, 1]
 }
 
-spriteset (SPRITESET_NO_fences, "grf/ISR1.png") {
- tmpl_no_fences()
+spriteset (mod_fences, "grf/NewFences.png") {
+ tmpl_new_fences(0,0)
 }
-switch(FEAT_RAILTYPES, SELF, NO_fences, PARAM_FENCE) {
- 0: SPRITESET_NO_fences;
- CB_FAILED;
+spriteset (reg_fences, "grf/NewFences.png") {
+ tmpl_new_fences(0,50)
+}
+spriteset (old_fences, "grf/NewFences.png") {
+ tmpl_new_fences(0,100)
+}
+spriteset (NO_fences, "grf/ISR1.png") {
+ tmpl_no_fences()
 }
 //Tracktypes
 //Standard Gauge Branch
@@ -403,6 +427,10 @@ spriteset (ISR1_bridge, "grf/ISR1.png") {
 }
 spriteset (ISR1_gui, "grf/ISR1_GUI.png") {
  tmpl_gui()
+}
+switch(FEAT_RAILTYPES, SELF, sw_ISR1_fence, PARAM_FENCE){
+ 0: NO_fences;
+ 1: old_fences;
 }
 if (PARAM_ISR == 1) {
 item(FEAT_RAILTYPES, ISR1_ID, 0) {
@@ -431,7 +459,7 @@ item(FEAT_RAILTYPES, ISR1_ID, 0) {
          underlay: ISR1_underlay; // defines the usual tracks and the underlay for junctions
          bridge_surfaces: ISR1_bridge; // defines the overlay drawn over bridges
    gui: ISR1_gui; // defines the gui sprites
-         fences: NO_fences; // Custom Fences since v2
+         fences: sw_ISR1_fence; // Custom Fences since v2
      }
  }
  }
@@ -469,6 +497,10 @@ switch(FEAT_RAILTYPES, SELF, DPRK_bridge_SNOW,terrain_type) {
 spriteset (DPRK_gui, "grf/DPRK_GUI.png") {
  tmpl_gui()
 }
+switch(FEAT_RAILTYPES, SELF, sw_DPRK_fence, PARAM_FENCE){
+ 0: NO_fences;
+ 1: reg_fences;
+}
 if (PARAM_DPRK == 1) {
 item(FEAT_RAILTYPES, DPRK_ID, 1) {
      property {
@@ -496,7 +528,7 @@ item(FEAT_RAILTYPES, DPRK_ID, 1) {
          underlay: DPRK_underlay_SNOW; // defines the usual tracks and the underlay for junctions
          bridge_surfaces: DPRK_bridge_SNOW; // defines the overlay drawn over bridges
    gui: DPRK_gui; // defines the gui sprites
-         fences: NO_fences; // Custom Fences since v2
+         fences: sw_DPRK_fence; // Custom Fences since v2
      }
  }
  }
@@ -552,7 +584,7 @@ item(FEAT_RAILTYPES, JP_ID, 2) {
          underlay: JP_underlay_SNOW; // defines the usual tracks and the underlay for junctions
          bridge_surfaces: JP_bridge_SNOW; // defines the overlay drawn over bridges
    gui: JP_gui; // defines the gui sprites
-         fences: NO_fences; // Custom Fences since v2
+         fences: sw_DPRK_fence; // Custom Fences since v2
      }
  }
  }
@@ -596,7 +628,7 @@ item(FEAT_RAILTYPES, ISR2_ID, 3) {
          underlay: ISR2_underlay; // defines the usual tracks and the underlay for junctions
          bridge_surfaces: ISR2_bridge; // defines the overlay drawn over bridges
    gui: ISR2_gui; // defines the gui sprites
-         fences: NO_fences; // Custom Fences since v2
+         fences: sw_ISR1_fence; // Custom Fences since v2
      }
  }
  }
@@ -640,7 +672,7 @@ item(FEAT_RAILTYPES, ISR3_ID, 4) {
          underlay: ISR3_underlay; // defines the usual tracks and the underlay for junctions
          bridge_surfaces: ISR3_bridge; // defines the overlay drawn over bridges
    gui: ISR3_gui; // defines the gui sprites
-         fences: NO_fences; // Custom Fences since v2
+         fences: sw_DPRK_fence; // Custom Fences since v2
      }
  }
  }
@@ -684,7 +716,7 @@ item(FEAT_RAILTYPES, ISR4_ID, 5) {
          underlay: ISR4_underlay; // defines the usual tracks and the underlay for junctions
          bridge_surfaces: ISR4_bridge; // defines the overlay drawn over bridges
    gui: ISR4_gui; // defines the gui sprites
-         fences: NO_fences; // Custom Fences since v2
+         fences: sw_ISR1_fence; // Custom Fences since v2
      }
  }
  }

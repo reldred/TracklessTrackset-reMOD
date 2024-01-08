@@ -12,6 +12,11 @@ spriteset (ISR1_gui, "grf/ISR1_GUI.png") {
 	tmpl_gui()
 }
 
+switch(FEAT_RAILTYPES, SELF, sw_ISR1_fence, PARAM_FENCE){
+	0: NO_fences;
+	1: old_fences;
+}
+
 if (PARAM_ISR == 1) {
 item(FEAT_RAILTYPES, ISR1_ID, 0) {
      property {
@@ -40,7 +45,7 @@ item(FEAT_RAILTYPES, ISR1_ID, 0) {
          bridge_surfaces:	ISR1_bridge;				// defines the overlay drawn over bridges
 		 gui:				ISR1_gui;					// defines the gui sprites
 
-         fences:          NO_fences;         // Custom Fences since v2
+         fences:            sw_ISR1_fence;         // Custom Fences since v2
      }
  }
  }

@@ -2,8 +2,8 @@
 # 0x01 -> English
 
 # General GRF strings
-STR_GRF_NAME	:Trackless Trackset 1.2
-STR_GRF_DESC	:A trackset for use with Industrial Stations Renewal, CHIPS, the North Korean trackset, or JapanSet Tracks, to fill up holes left by, for instance, diagonal tracks. It adds tracks that will serve to fill in the ground that is left as grass. {}{BLACK} {}{COPYRIGHT}2020-2021 Erato Nysiad{}License:GPL v2{}Credit:{}{BLACK}Japan Set Urban Ground: {SILVER}Dandan{}{BLACK}DPRK tracks urban ground: {SILVER}Erato{}{BLACK}ISR: {SILVER}Sanchimaru et al.{}{BLACK}CHIPS: {SILVER}andythenorth et al.{}{BLACK}Snow tiles: {SILVER}Zephyris et al.
+STR_GRF_NAME	:Trackless Trackset 1.2 reMOD
+STR_GRF_DESC	:A trackset for use with Industrial Stations Renewal, CHIPS, the North Korean trackset, or JapanSet Tracks, to fill up holes left by, for instance, diagonal tracks. It adds tracks that will serve to fill in the ground that is left as grass. {}{BLACK} {}{COPYRIGHT}2020-2021 Erato Nysiad{}Additional modifications 2023-2024 by reldred{}License:GPL v2{}Credit:{}{BLACK}Japan Set Urban Ground: {SILVER}Dandan{}{BLACK}DPRK tracks urban ground: {SILVER}Erato{}{BLACK}ISR: {SILVER}Sanchimaru et al.{}{BLACK}CHIPS: {SILVER}andythenorth et al.{}{BLACK}Snow tiles: {SILVER}Zephyris et al.
 
 # Track strings
 STR_ISR1 				:Industrial Stations Renewal Ground {GRAY}(Trackless)
