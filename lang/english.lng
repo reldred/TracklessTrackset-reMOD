@@ -1,0 +1,27 @@
+##grflangid 0x01
+# 0x01 -> English
+
+# General GRF strings
+STR_GRF_NAME	:Trackless Trackset 1.2
+STR_GRF_DESC	:A trackset for use with Industrial Stations Renewal, CHIPS, the North Korean trackset, or JapanSet Tracks, to fill up holes left by, for instance, diagonal tracks. It adds tracks that will serve to fill in the ground that is left as grass. {}{BLACK} {}{COPYRIGHT}2020-2021 Erato Nysiad{}License:GPL v2{}Credit:{}{BLACK}Japan Set Urban Ground: {SILVER}Dandan{}{BLACK}DPRK tracks urban ground: {SILVER}Erato{}{BLACK}ISR: {SILVER}Sanchimaru et al.{}{BLACK}CHIPS: {SILVER}andythenorth et al.{}{BLACK}Snow tiles: {SILVER}Zephyris et al.
+
+# Track strings
+STR_ISR1 				:Industrial Stations Renewal Ground {GRAY}(Trackless)
+STR_DPRK 				:North Korean Urban Ground {GRAY}(Trackless)
+STR_JP	 				:Japanese Urban Ground {GRAY}(Trackless)
+STR_ISR2 				:CHIPS Dirt Ground {GRAY}(Trackless)
+STR_ISR3 				:CHIPS Asphalt Ground {GRAY}(Trackless)
+STR_ISR4 				:CHIPS Cobblestone Ground {GRAY}(Trackless)
+
+#parameters
+STR_PARAM_FENCE			:Enable fences
+STR_PARAM_FENCE_DESC	:When disabled, no fences are displayed. When enabled, default fences are used
+
+STR_PARAM_ISR			:Industrial Stations Renewal ground
+STR_PARAM_ISR_DESC		:When enabled, ISR ground faux tracks will be available
+STR_PARAM_DPRK			:North Korean urban ground
+STR_PARAM_DPRK_DESC		:When enabled, DPRK urban ground faux tracks will be available
+STR_PARAM_JP			:JapanSet urban ground
+STR_PARAM_JP_DESC		:When enabled, JP urban ground faux tracks will be available
+STR_PARAM_CHIPS			:CHIPS ground
+STR_PARAM_CHIPS_DESC	:When enabled, CHIPS ground faux tracks will be available

@@ -1,0 +1,58 @@
+//Standard Gauge Branch
+spriteset (JP_underlay, "grf/JP.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (JP_overlay, "grf/JP.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (JP_bridge, "grf/JP.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, JP_overlay_SNOW,terrain_type) {
+	TILETYPE_SNOW: SNOW_overlay;
+	JP_overlay;
+}
+switch(FEAT_RAILTYPES, SELF, JP_underlay_SNOW,terrain_type) {
+	TILETYPE_SNOW: SNOW_underlay;
+	JP_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, JP_bridge_SNOW,terrain_type) {
+	TILETYPE_SNOW: SNOW_bridge;
+	JP_bridge;
+}
+spriteset (JP_gui, "grf/JP_GUI.png") {
+	tmpl_gui()
+}
+
+if (PARAM_JP == 1) {
+item(FEAT_RAILTYPES, JP_ID, 2) {
+     property {
+         label:                      "JPU1";//First of its kind gotta replace
+         name:                       string(STR_JP);
+         menu_text:                  string(STR_JP);
+         build_window_caption:       string(STR_JP);
+         autoreplace_text:           string(STR_JP);
+         new_engine_text:            string(STR_JP);
+		 toolbar_caption:			 string(STR_JP);
+         compatible_railtype_list:   ["JPU1","RAIL"];
+         powered_railtype_list:      ["JPU1","RAIL"];
+		 alternative_railtype_list:  ["JPU1","RAIL"];       
+         speed_limit:                1 km/h;       
+		 introduction_date:			 date(1800,1,1);
+		 map_colour:				 0x0C;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          0;             
+		 maintenance_cost:		     0;		
+		 sort_order:				 0xFE;	   
+     }
+     graphics {
+         track_overlay:		JP_overlay_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			JP_underlay_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	JP_bridge_SNOW;				// defines the overlay drawn over bridges
+		 gui:				JP_gui;					// defines the gui sprites
+
+         fences:          NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

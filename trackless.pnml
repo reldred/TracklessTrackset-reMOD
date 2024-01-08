@@ -1,0 +1,24 @@
+//North Korean Track Set
+//Defines the GRF
+#include "src/header.pnml"
+
+//Defines how the sprites are tracked, courtesy of the swedish rail set.
+#include "src/template.pnml"
+
+spriteset (SPRITESET_NO_fences, "grf/ISR1.png") {
+	tmpl_no_fences()
+}
+switch(FEAT_RAILTYPES, SELF, NO_fences, PARAM_FENCE) {
+	0: SPRITESET_NO_fences;
+	CB_FAILED;
+}
+
+//Tracktypes
+#include "src/Tracktypes/ISR1.pnml"
+#include "src/Tracktypes/DPRK.pnml"
+#include "src/Tracktypes/JP.pnml"
+#include "src/Tracktypes/ISR2.pnml"
+#include "src/Tracktypes/ISR3.pnml"
+#include "src/Tracktypes/ISR4.pnml"
+
+//cd /mnt/c/Temp/MTS2

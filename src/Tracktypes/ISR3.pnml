@@ -1,0 +1,46 @@
+//Standard Gauge Branch
+spriteset (ISR3_underlay, "grf/CHIPS1.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (ISR3_overlay, "grf/CHIPS1.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (ISR3_bridge, "grf/CHIPS1.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (ISR3_gui, "grf/CHIPS1_GUI.png") {
+	tmpl_gui()
+}
+
+if (PARAM_CHIPS == 1) {
+item(FEAT_RAILTYPES, ISR3_ID, 4) {
+     property {
+         label:                      "ISR3";//First of its kind gotta replace
+         name:                       string(STR_ISR3);
+         menu_text:                  string(STR_ISR3);
+         build_window_caption:       string(STR_ISR3);
+         autoreplace_text:           string(STR_ISR3);
+         new_engine_text:            string(STR_ISR3);
+		 toolbar_caption:			 string(STR_ISR3);
+         compatible_railtype_list:   ["ISR3","RAIL"];
+         powered_railtype_list:      ["ISR3","RAIL"];
+		 alternative_railtype_list:  ["ISR3","RAIL"];       
+         speed_limit:                1 km/h;       
+		 introduction_date:			 date(1800,1,1);
+		 map_colour:				 0x0C;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          0;             
+		 maintenance_cost:		     0;		
+		 sort_order:				 0xFC;	   
+     }
+     graphics {
+         track_overlay:		ISR3_overlay;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			ISR3_underlay;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	ISR3_bridge;				// defines the overlay drawn over bridges
+		 gui:				ISR3_gui;					// defines the gui sprites
+
+         fences:          NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

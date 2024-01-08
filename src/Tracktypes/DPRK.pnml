@@ -1,0 +1,67 @@
+//Standard Gauge Branch
+spriteset (DPRK_underlay, "grf/DPRK.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (DPRK_overlay, "grf/DPRK.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (DPRK_bridge, "grf/DPRK.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (SNOW_underlay, "grf/SNOW.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SNOW_overlay, "grf/SNOW.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (SNOW_bridge, "grf/SNOW.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, DPRK_overlay_SNOW,terrain_type) {
+	TILETYPE_SNOW: SNOW_overlay;
+	DPRK_overlay;
+}
+switch(FEAT_RAILTYPES, SELF, DPRK_underlay_SNOW,terrain_type) {
+	TILETYPE_SNOW: SNOW_underlay;
+	DPRK_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, DPRK_bridge_SNOW,terrain_type) {
+	TILETYPE_SNOW: SNOW_bridge;
+	DPRK_bridge;
+}
+spriteset (DPRK_gui, "grf/DPRK_GUI.png") {
+	tmpl_gui()
+}
+
+if (PARAM_DPRK == 1) {
+item(FEAT_RAILTYPES, DPRK_ID, 1) {
+     property {
+         label:                      "DPRK";//First of its kind gotta replace
+         name:                       string(STR_DPRK);
+         menu_text:                  string(STR_DPRK);
+         build_window_caption:       string(STR_DPRK);
+         autoreplace_text:           string(STR_DPRK);
+         new_engine_text:            string(STR_DPRK);
+		 toolbar_caption:			 string(STR_DPRK);
+         compatible_railtype_list:   ["DPRK","RAIL"];
+         powered_railtype_list:      ["DPRK","RAIL"];
+		 alternative_railtype_list:  ["DPRK","RAIL"];       
+         speed_limit:                1 km/h;       
+		 introduction_date:			 date(1800,1,1);
+		 map_colour:				 0x0C;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          0;             
+		 maintenance_cost:		     0;		
+		 sort_order:				 0xFF;	   
+     }
+     graphics {
+         track_overlay:		DPRK_overlay_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			DPRK_underlay_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	DPRK_bridge_SNOW;				// defines the overlay drawn over bridges
+		 gui:				DPRK_gui;					// defines the gui sprites
+
+         fences:          NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

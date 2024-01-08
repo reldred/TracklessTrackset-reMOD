@@ -1,0 +1,49 @@
+#define COSTPARAM(basecost,param) (param == 0) ? basecost/4 : (param == 1) ? basecost/2 : (param == 3) ? basecost*2 : (param == 4) ? basecost*4 : basecost
+
+grf {
+	grfid:	"EN\37\01";
+	name:	string(STR_GRF_NAME);
+	desc:	string(STR_GRF_DESC);
+	version:	1;
+	min_compatible_version: 1;
+	param {
+		PARAM_FENCE {
+			type:	bool;
+			name:	string(STR_PARAM_FENCE);
+			desc:	string(STR_PARAM_FENCE_DESC);
+			def_value: 0;
+		}
+	}
+	param {
+		PARAM_ISR {
+			type:	bool;
+			name:	string(STR_PARAM_ISR);
+			desc:	string(STR_PARAM_ISR_DESC);
+			def_value: 1;
+		}
+	}
+	param {
+		PARAM_JP {
+			type:	bool;
+			name:	string(STR_PARAM_JP);
+			desc:	string(STR_PARAM_JP_DESC);
+			def_value: 1;
+		}
+	}
+	param {
+		PARAM_DPRK {
+			type:	bool;
+			name:	string(STR_PARAM_DPRK);
+			desc:	string(STR_PARAM_DPRK_DESC);
+			def_value: 1;
+		}
+	}
+	param {
+		PARAM_CHIPS {
+			type:	bool;
+			name:	string(STR_PARAM_CHIPS);
+			desc:	string(STR_PARAM_CHIPS_DESC);
+			def_value: 1;
+		}
+	}
+}
